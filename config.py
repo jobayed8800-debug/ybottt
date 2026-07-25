@@ -5,11 +5,11 @@ Free Fire Tournament Bot - Configuration
 import os
 
 # Bot Settings
-BOT_TOKEN = os.getenv("BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8558590216:AAG1IUG_dWV3xiEgtXdpm1_WniAF-uLAGOs")
 WEB_SERVER_URL = os.getenv("WEB_SERVER_URL", "https://your-render-server.onrender.com")
 
 # Admin Settings
-SUPER_ADMIN_ID = int(os.getenv("SUPER_ADMIN_ID", "123456789"))  # Main Admin Telegram ID
+SUPER_ADMIN_ID = int(os.getenv("SUPER_ADMIN_ID", "8908999062"))  # Main Admin Telegram ID
 
 # Unlock Settings
 UNLOCK_DURATION_HOURS = 24
