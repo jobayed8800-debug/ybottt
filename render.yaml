@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: freefire-ad-server
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn web_server:app
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: BOT_TOKEN
+        sync: false
+      - key: SUPER_ADMIN_ID
+        sync: false
+      - key: WEB_SERVER_URL
+        sync: false
+
+  - type: worker
+    name: freefire-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: SUPER_ADMIN_ID
+        sync: false
+      - key: WEB_SERVER_URL
+        sync: false
