@@ -1,0 +1,6 @@
+Running 'python web_server.py'
+Traceback (most recent call last):
+  File "/opt/render/project/src/web_server.py", line 368, in <module>
+    with open('/mnt/agents/output/web_server.py', 'w', encoding='utf-8') as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/agents/output/web_server.py'
