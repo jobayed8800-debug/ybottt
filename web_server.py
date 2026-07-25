@@ -1,5 +1,5 @@
 
-web_server_content = '''"""
+web_server_content = r'''"""
 Free Fire Tournament Bot - Flask Web Server
 Handles Ad Pages, Unlock Codes, and API Endpoints
 """
@@ -11,7 +11,7 @@ from database import UnlockCodeDB, UserDB, TournamentDB, TaskDB
 from utils import generate_unlock_code
 from config import (
     UNLOCK_CODES_FILE, USERS_FILE, TOURNAMENTS_FILE, TASKS_FILE,
-    AD_WAIT_SECONDS, CODE_LENGTH, WEB_SERVER_URL, UNLOCK_DURATION_HOURS
+    AD_WAIT_SECONDS, CODE_LENGTH, WEB_SERVER_URL, UNLOCK_DURATION_HOURS, PORT
 )
 
 app = Flask(__name__)
@@ -362,10 +362,17 @@ def cleanup():
     return jsonify({"success": True, "message": "Cleanup completed"})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=PORT, debug=False, threaded=True)
 '''
 
-with open('/mnt/agents/output/web_server.py', 'w', encoding='utf-8') as f:
-    f.write(web_server_content)
+# Write as raw bytes to avoid any encoding issues
+with open('/mnt/agents/output/web_server.py', 'wb') as f:
+    f.write(web_server_content.encode('utf-8'))
 
-print("✅ web_server.py created")
+# Verify - check last 10 lines
+with open('/mnt/agents/output/web_server.py', 'r', encoding='utf-8') as f:
+    lines = f.readlines()
+    print("Total lines:", len(lines))
+    print("\nLast 10 lines:")
+    for line in lines[-10:]:
+        print(line, end='')
