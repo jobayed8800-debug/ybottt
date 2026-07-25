@@ -1,11 +1,24 @@
 
-python-telegram-bot==20.7
-Flask==3.0.0
-requests==2.31.0
-Werkzeug==3.0.1
-python-dotenv==1.0.0
 
-"""
+# Write the file byte-by-byte to ensure absolute cleanliness
+lines = [
+    b"python-telegram-bot==20.7\n",
+    b"Flask==3.0.0\n",
+    b"requests==2.31.0\n",
+    b"Werkzeug==3.0.1\n",
+    b"python-dotenv==1.0.0\n"
+]
+
+with open('/mnt/agents/output/requirements.txt', 'wb') as f:
+    f.writelines(lines)
+
+# Verify
+with open('/mnt/agents/output/requirements.txt', 'rb') as f:
+    raw = f.read()
+    print("Raw bytes:")
+    print(raw)
+    print("\nDecoded:")
+    print(raw.decode('utf-8'))p
 
 readme_content = '''# 🎮 Free Fire Tournament Bot
 
